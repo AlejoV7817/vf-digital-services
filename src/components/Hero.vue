@@ -3,268 +3,634 @@ import logo from '../assets/logo.png'
 </script>
 
 <template>
-  <section class="hero">
-    <div class="wrap container-global">
 
-      <!-- TEXTO -->
-      <div class="text fade-up">
+<section class="hero">
 
-        <h1>
-          Servicios de Diseño Web <br>
-          <span>& Marketing Digital</span>
-        </h1>
+<div class="wrap container-global">
 
-        <p class="desc">
-          Creamos páginas web modernas, rápidas y optimizadas para convertir visitantes en clientes reales.
-        </p>
+<div class="text fade-up">
 
-        <div class="actions">
-          <a href="https://wa.me/5215618049841" target="_blank" class="btn primary">
-            Contáctanos
-          </a>
+<p class="eyebrow">
+Instituto de Belleza Eskareth
+</p>
 
-          <a href="#servicios" class="btn ghost">
-            Ver servicios
-          </a>
-        </div>
+<h1>
+Aprende,<br>
+practica y<br>
+emprende<br>
+en el mundo<br>
+de la belleza
+</h1>
 
-      </div>
+<p class="desc">
+Cursos profesionales de estilismo, barbería, maquillaje,
+uñas, cejas y pestañas para convertir tu talento en una profesión.
+</p>
 
-      <!-- LOGO + REDES -->
-      <div class="visual fade-in">
+<div class="actions">
 
-        <img :src="logo" alt="logo">
+<a
+href="https://wa.me/5215519707045"
+target="_blank"
+class="btn primary"
+>
+Contáctanos
+</a>
 
-        <!-- 🔥 TITULO REDES -->
-        <p class="social-title">REDES</p>
+<a
+href="#servicios"
+class="btn ghost"
+>
+Ver cursos
+</a>
 
-        <!-- REDES -->
-        <div class="socials">
+</div>
 
-          <a href="https://www.instagram.com/vf_digital_services" target="_blank" class="ig">
-            <i class="fab fa-instagram"></i>
-          </a>
+<div class="stats">
 
-          <a href="https://www.tiktok.com/@vfdigitalservicess" target="_blank" class="tt">
-            <i class="fab fa-tiktok"></i>
-          </a>
+<div>
+<h4>1 a 6 meses</h4>
+<p>Duración de los cursos</p>
+</div>
 
-          <a href="https://wa.me/5215618049841" target="_blank" class="wa">
-            <i class="fab fa-whatsapp"></i>
-          </a>
+<div>
+<h4>Desde $1100</h4>
+<p>Inversión</p>
+</div>
 
-        </div>
+<div>
+<h4>SEP</h4>
+<p>Constancia oficial</p>
+</div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-    <!-- BOTÓN FLOTANTE -->
-    <a href="https://wa.me/5215618049841" class="whatsapp-float" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
+<div class="visual fade-in">
 
-  </section>
+<img
+:src="logo"
+alt="Instituto Eskareth"
+/>
+
+<p class="social-title">
+ÁREAS DE FORMACIÓN
+</p>
+
+<div class="specialties">
+
+<span>Cabello</span>
+
+<span>Estética</span>
+
+<span>Cejas y pestañas</span>
+
+<span>Uñas</span>
+
+<span>Maquillaje</span>
+
+<span>Barbería</span>
+
+</div>
+
+</div>
+
+</div>
+
+<a
+href="https://wa.me/5215519707045"
+target="_blank"
+class="whatsapp-float"
+>
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+</section>
+
 </template>
+<style>
 
-<style scoped>
-
-/* 🔥 TITULO REDES */
-.social-title {
-  margin-top: 10px;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  color: #9ca3af;
-  text-transform: uppercase;
+a{
+text-decoration:none!important;
 }
 
-/* ❌ QUITAR SUBRAYADO */
-.socials a,
-.socials a i {
-  text-decoration: none;
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+color:white;
+
+background:
+radial-gradient(circle at 18% 24%,rgba(200,155,60,.20),transparent 34%),
+radial-gradient(circle at 78% 70%,rgba(216,143,168,.12),transparent 32%),
+#050507;
+
+position:relative;
+
+overflow:hidden;
+
+padding:110px 0 70px;
+
 }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  color: white;
-  background:
-    radial-gradient(circle at 25% 30%, rgba(168,85,247,0.18), transparent 50%),
-    radial-gradient(circle at 75% 70%, rgba(59,130,246,0.18), transparent 50%),
-    #050507;
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background-image:
+radial-gradient(rgba(226,201,121,.10) 1px,transparent 1px);
+
+background-size:42px 42px;
+
+opacity:.45;
+
+z-index:0;
+
 }
 
-.wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 140px;
+.wrap{
+
+position:relative;
+
+z-index:2;
+
+display:grid;
+
+grid-template-columns:.95fr 1.05fr;
+
+align-items:center;
+
+gap:80px;
+
 }
 
-.text {
-  max-width: 560px;
+.text{
+
+max-width:540px;
+
 }
 
-h1 {
-  font-size: 3.8rem;
-  line-height: 1.1;
-  font-weight: 700;
-  letter-spacing: 1px;
+.eyebrow{
+
+color:var(--gold-light);
+
+font-size:.82rem;
+
+font-weight:700;
+
+letter-spacing:.25em;
+
+margin-bottom:20px;
+
+text-transform:uppercase;
+
 }
 
-h1 span {
-  background: linear-gradient(90deg,#a855f7,#3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+h1{
+
+font-size:4.7rem;
+
+line-height:.95;
+
+font-weight:700;
+
+margin-bottom:25px;
+
 }
 
-.desc {
-  margin-top: 20px;
-  color: #9ca3af;
-  font-size: 1.1rem;
+.desc{
+
+color:#d8d0c2;
+
+font-size:1.08rem;
+
+line-height:1.8;
+
+max-width:500px;
+
 }
 
-.actions {
-  margin-top: 30px;
+.actions{
+
+margin-top:36px;
+
+display:flex;
+
+gap:16px;
+
+flex-wrap:wrap;
+
 }
 
-.btn {
-  padding: 14px 24px;
-  border-radius: 10px;
-  margin-right: 12px;
-  font-weight: 600;
-  text-decoration: none;
+.btn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:14px 28px;
+
+border-radius:10px;
+
+font-weight:700;
+
+transition:.25s;
+
+min-height:50px;
+
 }
 
-.primary {
-  background: linear-gradient(90deg,#a855f7,#3b82f6);
-  color: white;
+.primary{
+
+background:linear-gradient(135deg,var(--gold),var(--gold-light));
+
+color:#050507;
+
 }
 
-.ghost {
-  border: 1px solid #a855f7;
-  color: #a855f7;
+.primary:hover{
+
+transform:translateY(-3px);
+
 }
 
-/* LOGO */
-.visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+.ghost{
+
+border:1px solid rgba(226,201,121,.55);
+
+color:var(--gold-light);
+
 }
 
-.visual img {
-  width: 620px;
-  mix-blend-mode: screen;
-  opacity: 0.95;
+.ghost:hover{
+
+background:rgba(226,201,121,.08);
+
 }
 
-/* REDES */
-.socials {
-  display: flex;
-  gap: 16px;
+.stats{
+
+margin-top:45px;
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:15px;
+
 }
 
-.socials a {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+.stats div{
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+padding:20px 15px;
 
-  font-size: 20px;
-  color: white;
+background:rgba(255,255,255,.04);
 
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(226,201,121,.18);
 
-  transition: 0.3s;
+border-radius:10px;
+
+backdrop-filter:blur(8px);
+
+}
+.stats h4{
+
+color:var(--gold-light);
+
+font-size:1.35rem;
+
+margin-bottom:8px;
+
 }
 
-/* HOVER PRO */
-.socials a.ig:hover {
-  background: #E1306C;
-  box-shadow: 0 0 20px #E1306C;
+.stats p{
+
+color:#bdb6aa;
+
+font-size:.86rem;
+
+line-height:1.4;
+
 }
 
-.socials a.tt:hover {
-  background: #000;
-  box-shadow: 0 0 20px #25F4EE;
+.visual{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
 }
 
-.socials a.wa {
-  background: #25D366;
+.visual img{
+
+display:block;
+
+width:520px;
+
+max-width:100%;
+
+margin:0 auto;
+
+filter:
+drop-shadow(0 25px 55px rgba(0,0,0,.55));
+
+transition:.35s;
+
 }
 
-.socials a.wa:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px #25D366;
+.visual img:hover{
+
+transform:scale(1.03);
+
 }
 
-/* FLOAT WHATSAPP */
-.whatsapp-float {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
+.social-title{
 
-  width: 65px;
-  height: 65px;
+margin-top:10px;
 
-  border-radius: 50%;
-  background: #25D366;
+margin-bottom:22px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+color:var(--gold-light);
 
-  font-size: 28px;
-  color: white;
+font-size:.82rem;
 
-  box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+font-weight:700;
 
-  z-index: 999;
+letter-spacing:.20em;
+
+text-align:center;
+
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
+.specialties{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:14px;
+
+width:100%;
+
+max-width:470px;
+
 }
 
-/* ANIMACIONES */
-.fade-up {
-  animation: fadeUp 0.9s ease forwards;
+.specialties span{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+min-height:52px;
+
+border-radius:10px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(226,201,121,.18);
+
+color:#ece2d1;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.25s;
+
 }
 
-.fade-in {
-  animation: fadeIn 1.2s ease forwards;
+.specialties span:hover{
+
+transform:translateY(-3px);
+
+border-color:var(--gold);
+
+background:rgba(226,201,121,.08);
+
+box-shadow:0 10px 25px rgba(200,155,60,.18);
+
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.whatsapp-float{
+
+position:fixed;
+
+bottom:22px;
+
+right:22px;
+
+width:62px;
+
+height:62px;
+
+border-radius:50%;
+
+background:#25D366;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+color:white;
+
+box-shadow:0 10px 30px rgba(37,211,102,.45);
+
+z-index:9999;
+
+transition:.3s;
+
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+.whatsapp-float:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 35px #25D366;
+
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .wrap {
-    flex-direction: column;
-    text-align: center;
-  }
+.fade-up{
 
-  h1 {
-    font-size: 2.6rem;
-  }
+opacity:0;
 
-  .visual img {
-    width: 380px;
-  }
+transform:translateY(35px);
+
+animation:fadeUp .9s ease forwards;
+
 }
+
+.fade-in{
+
+opacity:0;
+
+transform:scale(.97);
+
+animation:fadeIn 1.1s ease forwards;
+
+}
+
+@keyframes fadeUp{
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes fadeIn{
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+@media(max-width:900px){
+
+.hero{
+
+padding:90px 0 70px;
+
+}
+
+.wrap{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+gap:45px;
+
+}
+
+.text{
+
+max-width:100%;
+
+}
+
+h1{
+
+font-size:3.2rem;
+
+}
+
+.desc{
+
+margin:auto;
+
+}
+
+.actions{
+
+justify-content:center;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+max-width:360px;
+
+margin-left:auto;
+
+margin-right:auto;
+
+}
+
+.visual{
+
+order:-1;
+
+}
+
+.visual img{
+
+width:300px;
+
+}
+
+.specialties{
+
+max-width:360px;
+
+margin:auto;
+
+}
+
+}
+
+@media(max-width:520px){
+
+.hero{
+
+padding-top:80px;
+
+}
+
+h1{
+
+font-size:2.45rem;
+
+}
+
+.actions{
+
+flex-direction:column;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+.visual img{
+
+width:240px;
+
+}
+
+.specialties{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
 </style>

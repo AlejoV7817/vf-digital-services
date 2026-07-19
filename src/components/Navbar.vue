@@ -1,51 +1,65 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import logo from '../assets/logo.png'
 
 const open = ref(false)
-
-// 🔥 ahora emite DOS eventos
 const emit = defineEmits(['open-contact', 'open-privacy'])
 
 const openContact = () => {
+  open.value = false
   emit('open-contact')
 }
 
 const openPrivacy = () => {
+  open.value = false
   emit('open-privacy')
 }
+
+const handleClickOutside = (e) => {
+  const menu = document.querySelector('.menu')
+  const hamb = document.querySelector('.hamb')
+
+  if (
+    open.value &&
+    menu &&
+    !menu.contains(e.target) &&
+    hamb &&
+    !hamb.contains(e.target)
+  ) {
+    open.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
   <header class="nav">
-    
     <div class="wrap container-global">
 
-      <!-- MARCA -->
-      <div class="brand">
-        vf_digital_services
-      </div>
+      <a href="#" class="brand">
+        <img :src="logo" alt="Instituto Eskareth">
+      </a>
 
-      <!-- MENU -->
       <nav class="menu" :class="{ show: open }">
         <a href="#">Inicio</a>
         <a href="#nosotros">Nosotros</a>
-        <a href="#servicios">Servicios</a>
-
+        <a href="#servicios">Cursos</a>
         <a href="#" @click.prevent="openContact">Contacto</a>
-
-        <!-- 🔥 NUEVO BOTÓN -->
-        <a href="#" class="privacy" @click.prevent="openPrivacy">
-          Privacidad
-        </a>
+        <a href="#" class="privacy" @click.prevent="openPrivacy">Privacidad</a>
       </nav>
 
-      <!-- CTA -->
-      <a href="#" @click.prevent="openContact" class="cta">
-        Contáctanos
+      <a href="#" class="cta" @click.prevent="openContact">
+        Solicitar información
       </a>
 
-      <!-- HAMBURGUESA -->
-      <button class="hamb" @click="open = !open">
+      <button class="hamb" @click="open = !open" aria-label="Abrir menú">
         ☰
       </button>
 
@@ -55,150 +69,159 @@ const openPrivacy = () => {
 
 <style scoped>
 
-/* 🔥 BOTÓN PRIVACIDAD MÁS SUTIL */
-.privacy {
-  font-size: 0.8rem;
-  color: #9ca3af;
-  text-decoration: none;
-  transition: 0.2s;
+.nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(5,5,7,.72);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(200,155,60,.18);
 }
 
-.privacy:hover {
-  color: #a855f7;
+.wrap{
+  height:90px;
+  display:grid;
+  grid-template-columns:auto 1fr auto auto;
+  align-items:center;
+  gap:30px;
 }
 
-</style>
-
-<style scoped>
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-
-  background: rgba(6,6,10,0.65);
-  backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
 }
 
-/* WRAP */
-.wrap {
-  height: 70px;
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  align-items: center;
-  gap: 30px;
+.brand img{
+  height:75px;
+  width:auto;
+  display:block;
+  transition:.3s;
 }
 
-/* MARCA */
-.brand {
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-
-  background: linear-gradient(90deg,#ec4899,#a855f7,#3b82f6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.brand img:hover{
+  transform:scale(1.05);
 }
 
-/* MENU */
-.menu {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
+.menu{
+  display:flex;
+  justify-content:center;
+  gap:26px;
 }
 
-.menu a {
-  font-size: 0.95rem;
-  color: #cfcfd4;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.25s;
-  position: relative;
+.menu a{
+  font-size:.95rem;
+  color:#d8d8d8;
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+  transition:.25s;
 }
 
-/* HOVER LINE */
-.menu a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-
-  background: linear-gradient(90deg,#a855f7,#3b82f6);
-  transition: 0.25s;
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:.25s;
 }
 
-.menu a:hover {
-  color: white;
+.menu a:hover{
+  color:white;
 }
 
-.menu a:hover::after {
-  width: 100%;
+.menu a:hover::after{
+  width:100%;
 }
 
-/* BOTON */
-.cta {
-  font-size: 0.9rem;
-  padding: 10px 18px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-
-  background: linear-gradient(90deg,#a855f7,#3b82f6);
-
-  transition: 0.25s;
+.privacy{
+  font-size:.82rem;
+  color:#9f9f9f;
 }
 
-.cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(168,85,247,0.3);
+.privacy:hover{
+  color:var(--gold);
 }
 
-/* HAMB */
-.hamb {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
+.cta{
+  font-size:.9rem;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+  color:#050507;
+  background:var(--gold);
+  transition:.25s;
 }
 
-/* MOBILE */
-@media (max-width: 900px) {
-  .menu {
-    position: absolute;
-    top: 70px;
-    right: 20px;
+.cta:hover{
+  background:var(--gold-light);
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(200,155,60,.30);
+}
 
-    flex-direction: column;
-    width: 220px;
+.hamb{
+  display:none;
+  background:none;
+  border:none;
+  color:white;
+  font-size:1.4rem;
+  cursor:pointer;
+}
 
-    background: #0a0a0a;
-    border-radius: 12px;
+@media(max-width:900px){
 
-    padding: 10px 0;
-    display: none;
+  .nav{
+    height:70px;
   }
 
-  .menu.show {
-    display: flex;
+  .wrap{
+    height:70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
   }
 
-  .menu a {
-    padding: 12px 20px;
+  .brand img{
+    height:58px;
   }
 
-  .cta {
-    display: none;
+  .menu{
+    position:absolute;
+    top:75px;
+    right:15px;
+    width:220px;
+    display:none;
+    flex-direction:column;
+    background:rgba(10,10,10,.96);
+    border:1px solid rgba(200,155,60,.15);
+    border-radius:8px;
+    padding:10px 0;
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.55);
   }
 
-  .hamb {
-    display: block;
+  .menu.show{
+    display:flex;
   }
+
+  .menu a{
+    padding:14px 20px;
+  }
+
+  .cta{
+    display:none;
+  }
+
+  .hamb{
+    display:block;
+  }
+
 }
+
 </style>
